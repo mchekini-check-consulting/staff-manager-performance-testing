@@ -5,13 +5,13 @@ node("ci-node") {
     }
 
 
-    stage("Test de performances") {
+    stage("Performance Testing") {
         sh "chmod 777 mvnw"
         sh "./mvnw gatling:test"
     }
 
-    stage("Generate Report") {
-        sh "echo generate report"
+    stage("Archive Report") {
+        gatlingArchive()
     }
 
 
